@@ -32,3 +32,25 @@ FROM alumno
 UPDATE alumno
 SET nombre = 'MONICO'
 WHERE id = 1;
+
+
+
+-- ==================================================================== --
+CREATE DATABASE pruebaatributos
+
+CREATE TABLE alumnos(
+num_Alumno int NOT NULL PRIMARY KEY,
+nombre VARCHAR(50) NOT NULL,
+apellido1 VARCHAR(50) NOT NULL,
+apellido2 VARCHAR(50) NOT NULL,
+fecha_nacimiento DATE NOT NULL
+);
+
+INSERT INTO alumnos
+VALUES(1, 'Angel Patricio', 'Perez', 'Hernandez', '1998-09-08');
+
+INSERT INTO alumnos
+VALUES(2, 'Ian Uriel', 'Ruiz', 'Zuñiga', '2007-07-25');
+
+SELECT nombre, apellido1, apellido2, YEAR(fecha_nacimiento), MONTH(fecha_nacimiento), DAY(fecha_nacimiento), (DATEDIFF(YEAR, fecha_nacimiento, GETDATE())) AS Edad
+FROM alumnos;
